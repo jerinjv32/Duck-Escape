@@ -2,8 +2,11 @@
 
 [ext_resource type="Texture2D" uid="uid://dk5xvs6n5wxln" path="res://assets/sprites/duck.png" id="1_3vyb7"]
 [ext_resource type="Script" uid="uid://bie2o5c4kshnw" path="res://scenes/player.gd" id="1_qhqgy"]
+[ext_resource type="Shader" uid="uid://p21fee5kjj1f" path="res://shaders/damage_effect.tres" id="2_dqkch"]
 [ext_resource type="Script" uid="uid://q0tndtvf6e7l" path="res://scripts/input_component.gd" id="2_g2els"]
-[ext_resource type="Script" uid="uid://plp2f5rxpogx" path="res://scripts/health_component.gd" id="4_dqkch"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qlg0r"]
+shader = ExtResource("2_dqkch")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_g2els"]
 atlas = ExtResource("1_3vyb7")
@@ -81,6 +84,7 @@ collision_layer = 2
 script = ExtResource("1_qhqgy")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1465110]
+material = SubResource("ShaderMaterial_qlg0r")
 position = Vector2(0, -8)
 sprite_frames = SubResource("SpriteFrames_y4r1p")
 animation = &"Run"
@@ -96,7 +100,3 @@ debug_color = Color(0.9199227, 0.1743221, 0.5572971, 0.41960785)
 unique_name_in_owner = true
 script = ExtResource("2_g2els")
 metadata/_custom_type_script = "uid://q0tndtvf6e7l"
-
-[node name="HealthComponent" type="Node" parent="." unique_id=1530336530]
-script = ExtResource("4_dqkch")
-metadata/_custom_type_script = "uid://plp2f5rxpogx"

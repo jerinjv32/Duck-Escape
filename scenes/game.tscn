@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://e16i7v8x735r" path="res://scenes/kill_zone.tscn" id="4_lbhrr"]
 [ext_resource type="PackedScene" uid="uid://debentltq18s7" path="res://scenes/checkpoint.tscn" id="5_iywne"]
 [ext_resource type="PackedScene" uid="uid://cc1snadygiho5" path="res://scenes/coin.tscn" id="8_gee14"]
+[ext_resource type="PackedScene" uid="uid://5jr4gjed3lnc" path="res://scenes/hazard.tscn" id="9_0tnpc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_u5sy4"]
 texture = ExtResource("1_p57ef")
@@ -64,6 +65,7 @@ texture = ExtResource("1_yqjtg")
 3:0/0 = 0
 3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 1.6000004, 8, 1.6000004, 1.6000004, 8, -8, 8)
 0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 2.666667, 8, 2.666667, 8, 8, -8, 8)
 1:1/0 = 0
 1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 1.6000004, 8, 1.6000004, 8, 8, -8, 8)
 2:1/0 = 0
@@ -497,6 +499,9 @@ _data = {
 &"kill_well_animation": SubResource("Animation_0tnpc")
 }
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_0tnpc"]
+radius = 5.0990195
+
 [node name="Game" type="Node2D" unique_id=762644624]
 
 [node name="GameManger" type="Node" parent="." unique_id=1346387695]
@@ -564,14 +569,14 @@ autoplay = &"Platoform_Above"
 [node name="KillZone" parent="." unique_id=1761865723 node_paths=PackedStringArray("player") instance=ExtResource("4_lbhrr")]
 player = NodePath("../Player")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="KillZone" unique_id=590852764]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="KillZone" unique_id=590852764]
 shape = SubResource("WorldBoundaryShape2D_iywne")
 
 [node name="KillZone2" parent="." unique_id=1606093254 node_paths=PackedStringArray("player") instance=ExtResource("4_lbhrr")]
 position = Vector2(360, -152)
 player = NodePath("../Player")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="KillZone2" unique_id=370089993]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="KillZone2" unique_id=370089993]
 position = Vector2(0, 3.7462463)
 shape = SubResource("RectangleShape2D_lbhrr")
 
@@ -614,8 +619,8 @@ position = Vector2(72, -272)
 [node name="Coin9" parent="Coins" unique_id=28950048 instance=ExtResource("8_gee14")]
 position = Vector2(6, -257)
 
-[node name="Coin10" parent="Coins/Coin9" unique_id=1105828687 instance=ExtResource("8_gee14")]
-position = Vector2(354, 84)
+[node name="Coin10" parent="Coins" unique_id=1105828687 instance=ExtResource("8_gee14")]
+position = Vector2(360, -173)
 
 [node name="Coin11" parent="Coins" unique_id=1065962702 instance=ExtResource("8_gee14")]
 position = Vector2(199, -474)
@@ -649,3 +654,135 @@ position = Vector2(-111, -193)
 
 [node name="Platoform6" parent="KillWell/Platforms3" unique_id=1157965482 instance=ExtResource("3_lnu2h")]
 position = Vector2(0, -257)
+
+[node name="Hazards" type="Node2D" parent="KillWell" unique_id=1863863838]
+
+[node name="Hazard" parent="KillWell/Hazards" unique_id=42586075 node_paths=PackedStringArray("player") instance=ExtResource("9_0tnpc")]
+position = Vector2(-79, -268)
+player = NodePath("../../../Player")
+
+[node name="Hazard2" parent="KillWell/Hazards" unique_id=1380006585 node_paths=PackedStringArray("player") instance=ExtResource("9_0tnpc")]
+position = Vector2(-47, -268)
+player = NodePath("../../../Player")
+
+[node name="Hazard3" parent="KillWell/Hazards" unique_id=572144708 node_paths=PackedStringArray("player") instance=ExtResource("9_0tnpc")]
+position = Vector2(-15, -268)
+player = NodePath("../../../Player")
+
+[node name="Hazard5" parent="KillWell/Hazards" unique_id=528839997 node_paths=PackedStringArray("player") instance=ExtResource("9_0tnpc")]
+position = Vector2(16, -286)
+player = NodePath("../../../Player")
+
+[node name="Hazard4" parent="KillWell/Hazards" unique_id=1358824769 node_paths=PackedStringArray("player") instance=ExtResource("9_0tnpc")]
+position = Vector2(-111, -268)
+player = NodePath("../../../Player")
+
+[node name="Hazards2" type="Node2D" parent="KillWell" unique_id=995646691]
+position = Vector2(0, 128)
+
+[node name="Hazard" parent="KillWell/Hazards2" unique_id=1496044540 node_paths=PackedStringArray("player") instance=ExtResource("9_0tnpc")]
+position = Vector2(-79, -268)
+player = NodePath("../../../Player")
+
+[node name="Hazard2" parent="KillWell/Hazards2" unique_id=1674796107 node_paths=PackedStringArray("player") instance=ExtResource("9_0tnpc")]
+position = Vector2(-47, -268)
+player = NodePath("../../../Player")
+
+[node name="Hazard3" parent="KillWell/Hazards2" unique_id=947354843 node_paths=PackedStringArray("player") instance=ExtResource("9_0tnpc")]
+position = Vector2(-15, -268)
+player = NodePath("../../../Player")
+
+[node name="Hazard4" parent="KillWell/Hazards2" unique_id=2128888879 node_paths=PackedStringArray("player") instance=ExtResource("9_0tnpc")]
+position = Vector2(-111, -268)
+player = NodePath("../../../Player")
+
+[node name="Hazards3" type="Node2D" parent="KillWell" unique_id=1150906524]
+position = Vector2(0, 255)
+
+[node name="Hazard" parent="KillWell/Hazards3" unique_id=1328220888 node_paths=PackedStringArray("player") instance=ExtResource("9_0tnpc")]
+position = Vector2(-79, -268)
+player = NodePath("../../../Player")
+
+[node name="Hazard2" parent="KillWell/Hazards3" unique_id=1496712936 node_paths=PackedStringArray("player") instance=ExtResource("9_0tnpc")]
+position = Vector2(-47, -268)
+player = NodePath("../../../Player")
+
+[node name="Hazard3" parent="KillWell/Hazards3" unique_id=526245392 node_paths=PackedStringArray("player") instance=ExtResource("9_0tnpc")]
+position = Vector2(-15, -268)
+player = NodePath("../../../Player")
+
+[node name="Hazard4" parent="KillWell/Hazards3" unique_id=237730244 node_paths=PackedStringArray("player") instance=ExtResource("9_0tnpc")]
+position = Vector2(-111, -268)
+player = NodePath("../../../Player")
+
+[node name="Spikes" type="Node2D" parent="KillWell" unique_id=1141410008]
+position = Vector2(0, -1)
+
+[node name="KillZone" parent="KillWell/Spikes" unique_id=1509418332 node_paths=PackedStringArray("player") instance=ExtResource("4_lbhrr")]
+position = Vector2(-127, -203)
+player = NodePath("../../../Player")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KillWell/Spikes/KillZone" unique_id=409610789]
+shape = SubResource("CircleShape2D_0tnpc")
+
+[node name="KillZone2" parent="KillWell/Spikes" unique_id=476417631 node_paths=PackedStringArray("player") instance=ExtResource("4_lbhrr")]
+position = Vector2(-63, -203)
+player = NodePath("../../../Player")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KillWell/Spikes/KillZone2" unique_id=1683116905]
+shape = SubResource("CircleShape2D_0tnpc")
+
+[node name="KillZone3" parent="KillWell/Spikes" unique_id=172958426 node_paths=PackedStringArray("player") instance=ExtResource("4_lbhrr")]
+position = Vector2(1, -203)
+player = NodePath("../../../Player")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KillWell/Spikes/KillZone3" unique_id=723584229]
+shape = SubResource("CircleShape2D_0tnpc")
+
+[node name="Spikes2" type="Node2D" parent="KillWell" unique_id=1775697303]
+position = Vector2(0, 128)
+
+[node name="KillZone" parent="KillWell/Spikes2" unique_id=466630969 node_paths=PackedStringArray("player") instance=ExtResource("4_lbhrr")]
+position = Vector2(-127, -203)
+player = NodePath("../../../Player")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KillWell/Spikes2/KillZone" unique_id=400900985]
+shape = SubResource("CircleShape2D_0tnpc")
+
+[node name="KillZone2" parent="KillWell/Spikes2" unique_id=1784702405 node_paths=PackedStringArray("player") instance=ExtResource("4_lbhrr")]
+position = Vector2(-63, -203)
+player = NodePath("../../../Player")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KillWell/Spikes2/KillZone2" unique_id=831443633]
+shape = SubResource("CircleShape2D_0tnpc")
+
+[node name="KillZone3" parent="KillWell/Spikes2" unique_id=520378658 node_paths=PackedStringArray("player") instance=ExtResource("4_lbhrr")]
+position = Vector2(1, -203)
+player = NodePath("../../../Player")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KillWell/Spikes2/KillZone3" unique_id=415365975]
+shape = SubResource("CircleShape2D_0tnpc")
+
+[node name="Spikes3" type="Node2D" parent="KillWell" unique_id=1270930819]
+position = Vector2(-1, 255)
+
+[node name="KillZone" parent="KillWell/Spikes3" unique_id=1056556284 node_paths=PackedStringArray("player") instance=ExtResource("4_lbhrr")]
+position = Vector2(-127, -203)
+player = NodePath("../../../Player")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KillWell/Spikes3/KillZone" unique_id=1699553123]
+shape = SubResource("CircleShape2D_0tnpc")
+
+[node name="KillZone2" parent="KillWell/Spikes3" unique_id=1566568965 node_paths=PackedStringArray("player") instance=ExtResource("4_lbhrr")]
+position = Vector2(-63, -203)
+player = NodePath("../../../Player")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KillWell/Spikes3/KillZone2" unique_id=1200210628]
+shape = SubResource("CircleShape2D_0tnpc")
+
+[node name="KillZone3" parent="KillWell/Spikes3" unique_id=492336112 node_paths=PackedStringArray("player") instance=ExtResource("4_lbhrr")]
+position = Vector2(1, -203)
+player = NodePath("../../../Player")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KillWell/Spikes3/KillZone3" unique_id=138525694]
+shape = SubResource("CircleShape2D_0tnpc")
