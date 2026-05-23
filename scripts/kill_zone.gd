@@ -2,6 +2,7 @@ extends Area2D
 
 @onready var timer: Timer = $Timer
 @export var player: CharacterBody2D
+var respawn_component: Node = player.get_node('RespawnComponent')
 
 
 func _on_body_entered(body: Node2D) -> void:
@@ -9,4 +10,4 @@ func _on_body_entered(body: Node2D) -> void:
 		timer.start()
 
 func _on_timer_timeout() -> void:
-	player.global_position = player.respawn_point
+	respawn_component.respawn()

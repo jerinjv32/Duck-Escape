@@ -3,9 +3,9 @@ extends CharacterBody2D
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
 var health: int = 11
-var respawn_point: Vector2 = Vector2(64, 39)
 const JUMP_VELOCITY: int = -300
 const SPEED: int = 200
+var is_dot_present: bool = false
 
 func _physics_process(delta: float) -> void:
 	input_component.get_input()
