@@ -1,0 +1,7 @@
+[gd_resource type="Theme" format=3 uid="uid://dqflu6kyjm05b"]
+
+[ext_resource type="FontFile" uid="uid://djhrf244dxqgi" path="res://assets/fonts/PixelOperator8.ttf" id="1_gv4p5"]
+
+[resource]
+default_font = ExtResource("1_gv4p5")
+Label/fonts/font = ExtResource("1_gv4p5")

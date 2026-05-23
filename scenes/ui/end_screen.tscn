@@ -1,0 +1,104 @@
+[gd_scene format=3 uid="uid://cqjyxyrssgmhw"]
+
+[ext_resource type="Theme" uid="uid://dqflu6kyjm05b" path="res://gui.tres" id="1_4ttpn"]
+[ext_resource type="Script" uid="uid://werpeuo2ew8m" path="res://scenes/ui/end_screen.gd" id="1_n8r4t"]
+
+[sub_resource type="Animation" id="Animation_n8r4t"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [""]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Button:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_wgyui"]
+resource_name = "level_complete_animation"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": ["", "L", "Le", "Lev", "Leve", "Level", "Level C", "Level Co", "Level Com", "Level Comp", "Level Compl", "Level Comple", "Level Complet", "Level Complete", "Level Completed", "Level Completed!"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Button:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.001, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_53v5j"]
+_data = {
+&"RESET": SubResource("Animation_n8r4t"),
+&"level_complete_animation": SubResource("Animation_wgyui")
+}
+
+[node name="CanvasLayer" type="CanvasLayer" unique_id=25226550]
+script = ExtResource("1_n8r4t")
+
+[node name="Panel" type="Panel" parent="." unique_id=745863661]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_4ttpn")
+
+[node name="GridContainer" type="GridContainer" parent="Panel" unique_id=1961999726]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.5
+offset_top = -11.5
+offset_right = 133.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Panel/GridContainer" unique_id=1233005307]
+libraries/ = SubResource("AnimationLibrary_53v5j")
+autoplay = &"level_complete_animation"
+
+[node name="Label" type="Label" parent="Panel/GridContainer" unique_id=63890886]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+
+[node name="Button" type="Button" parent="Panel/GridContainer" unique_id=416144923]
+layout_mode = 2
+text = "QUIT"
+
+[connection signal="pressed" from="Panel/GridContainer/Button" to="." method="_on_button_pressed"]

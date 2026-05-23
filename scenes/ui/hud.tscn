@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://dt1pr3aw5hbv3"]
+
+[ext_resource type="Script" uid="uid://cllf380ahnl7a" path="res://scenes/ui/hud.gd" id="1_8qguk"]
+[ext_resource type="Theme" uid="uid://dqflu6kyjm05b" path="res://gui.tres" id="1_bo48s"]
+[ext_resource type="Texture2D" uid="uid://5ia0refrh8ju" path="res://assets/sprites/coin.png" id="2_8qguk"]
+[ext_resource type="Texture2D" uid="uid://dfc62dd8vmupf" path="res://assets/sprites/hour_glass.png" id="3_136eg"]
+
+[node name="Control" type="Control" unique_id=1072516974]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_8qguk")
+
+[node name="Timer" type="Timer" parent="." unique_id=123713026]
+wait_time = 120.0
+autostart = true
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=103109140]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer" unique_id=1744415579]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="GridContainer" type="GridContainer" parent="PanelContainer/MarginContainer" unique_id=1418109758]
+layout_mode = 2
+theme = ExtResource("1_bo48s")
+columns = 2
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer/GridContainer" unique_id=149217205]
+layout_mode = 2
+texture = ExtResource("2_8qguk")
+expand_mode = 2
+
+[node name="Coins" type="Label" parent="PanelContainer/MarginContainer/GridContainer" unique_id=156438504]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0"
+
+[node name="TextureRect2" type="TextureRect" parent="PanelContainer/MarginContainer/GridContainer" unique_id=1686313729]
+layout_mode = 2
+texture = ExtResource("3_136eg")
+expand_mode = 2
+
+[node name="Time" type="Label" parent="PanelContainer/MarginContainer/GridContainer" unique_id=990968689]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0"
