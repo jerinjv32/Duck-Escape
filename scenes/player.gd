@@ -5,7 +5,7 @@ extends CharacterBody2D
 var health: int = 11
 const JUMP_VELOCITY: int = -300
 const SPEED: int = 200
-var is_dot_present: bool = false
+var respawn_point: Vector2 = Vector2(64, 39)
 
 func _physics_process(delta: float) -> void:
 	input_component.get_input()

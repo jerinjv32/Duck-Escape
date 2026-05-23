@@ -2,7 +2,7 @@ extends Area2D
 
 @onready var timer: Timer = $Timer
 @export var player: CharacterBody2D
-var respawn_component: Node = player.get_node('RespawnComponent')
+@onready var respawn_component: Node = %RespawnComponent
 
 
 func _on_body_entered(body: Node2D) -> void:

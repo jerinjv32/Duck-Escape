@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://cc1snadygiho5" path="res://scenes/coin.tscn" id="8_gee14"]
 [ext_resource type="PackedScene" uid="uid://5jr4gjed3lnc" path="res://scenes/hazard.tscn" id="9_0tnpc"]
 [ext_resource type="PackedScene" uid="uid://mjo3crass5fr" path="res://scenes/completion_gate.tscn" id="11_kvpfn"]
+[ext_resource type="PackedScene" uid="uid://dt1pr3aw5hbv3" path="res://scenes/ui/hud.tscn" id="12_dinhu"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_u5sy4"]
 texture = ExtResource("1_p57ef")
@@ -799,3 +800,11 @@ shape = SubResource("CircleShape2D_0tnpc")
 
 [node name="CompletionGate" parent="." unique_id=335402311 instance=ExtResource("11_kvpfn")]
 position = Vector2(-248, 80)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1454374264]
+
+[node name="Control" parent="CanvasLayer" unique_id=1072516974 instance=ExtResource("12_dinhu")]
+offset_left = 10.0
+offset_top = 8.0
+offset_right = 10.0
+offset_bottom = 8.0

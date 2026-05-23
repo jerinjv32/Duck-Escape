@@ -1,0 +1,105 @@
+[gd_scene format=3 uid="uid://bi70wo6tu0hua"]
+
+[ext_resource type="Theme" uid="uid://dqflu6kyjm05b" path="res://gui.tres" id="1_j0ehl"]
+[ext_resource type="Script" uid="uid://cd3e3t7awuuda" path="res://scenes/ui/death_screen.gd" id="1_njuei"]
+
+[sub_resource type="Animation" id="Animation_njuei"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [""]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Button:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_w6at5"]
+resource_name = "you_died"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": ["", "Y", "Yo", "You", "You D", "You Di", "You Die", "You Died", "You Died!"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Button:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ascqi"]
+_data = {
+&"RESET": SubResource("Animation_njuei"),
+&"you_died": SubResource("Animation_w6at5")
+}
+
+[node name="CanvasLayer" type="CanvasLayer" unique_id=229364142]
+script = ExtResource("1_njuei")
+
+[node name="Panel" type="Panel" parent="." unique_id=1946058263]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_j0ehl")
+
+[node name="GridContainer" type="GridContainer" parent="Panel" unique_id=2075433347]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.5
+offset_top = -11.5
+offset_right = 133.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Panel/GridContainer" unique_id=817697777]
+root_node = NodePath("../Label")
+libraries/ = SubResource("AnimationLibrary_ascqi")
+
+[node name="Label" type="Label" parent="Panel/GridContainer" unique_id=194758214]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+
+[node name="Button" type="Button" parent="Panel/GridContainer" unique_id=904963016]
+layout_mode = 2
+disabled = true
+text = "Restart"
+
+[connection signal="pressed" from="Panel/GridContainer/Button" to="." method="_on_button_pressed"]

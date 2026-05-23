@@ -1,10 +1,14 @@
 [gd_scene format=3 uid="uid://e16i7v8x735r"]
 
 [ext_resource type="Script" uid="uid://05xwxs1ckcu7" path="res://scripts/kill_zone.gd" id="1_kebdr"]
+[ext_resource type="PackedScene" uid="uid://bfg0x6h014fpa" path="res://scenes/respawn_component.tscn" id="2_l4ff3"]
 
 [node name="KillZone" type="Area2D" unique_id=1761865723]
 collision_mask = 2
 script = ExtResource("1_kebdr")
+
+[node name="RespawnComponent" parent="." unique_id=1212638763 instance=ExtResource("2_l4ff3")]
+unique_name_in_owner = true
 
 [node name="Timer" type="Timer" parent="." unique_id=955358565]
 wait_time = 0.5
