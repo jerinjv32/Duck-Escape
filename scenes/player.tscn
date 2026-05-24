@@ -112,7 +112,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"Dead",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -164,7 +164,7 @@ material = SubResource("ShaderMaterial_qlg0r")
 position = Vector2(0, -8)
 sprite_frames = SubResource("SpriteFrames_y4r1p")
 animation = &"Dead"
-autoplay = "Idle"
+frame_progress = 0.3199666
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1530621852]
 position = Vector2(0, -5)

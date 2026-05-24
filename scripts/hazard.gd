@@ -23,7 +23,7 @@ func damage() -> void:
 	if player.health > 0:
 		player.health -= 1
 	elif player.health == 0:
-		respawn_component.respawn()
+		respawn_component.respawn(player)
 
 	damage_overtime()
 
