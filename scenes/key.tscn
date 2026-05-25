@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://befxe6vtlvfmr"]
+
+[ext_resource type="Script" uid="uid://1gol71umj3na" path="res://scripts/key.gd" id="1_fttkb"]
+[ext_resource type="Texture2D" uid="uid://oiw83jgxlwx" path="res://assets/sprites/coin_and_key.png" id="1_yk2u2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fttkb"]
+atlas = ExtResource("1_yk2u2")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wy8tx"]
+atlas = ExtResource("1_yk2u2")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_brs3p"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fttkb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wy8tx")
+}],
+"loop": true,
+"name": &"spinning_key",
+"speed": 3.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jcln5"]
+radius = 3.0
+height = 14.0
+
+[node name="Key" type="Area2D" unique_id=786253190 groups=["Player"]]
+collision_mask = 2
+script = ExtResource("1_fttkb")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=786494248]
+sprite_frames = SubResource("SpriteFrames_brs3p")
+animation = &"spinning_key"
+autoplay = "spinning_key"
+frame_progress = 0.59135723
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=189719239]
+position = Vector2(0, -0.5)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_jcln5")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

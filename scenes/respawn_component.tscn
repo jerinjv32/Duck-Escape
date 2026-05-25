@@ -4,3 +4,9 @@
 
 [node name="RespawnComponent" type="Node" unique_id=1212638763]
 script = ExtResource("1_36edx")
+
+[node name="Timer" type="Timer" parent="." unique_id=649334745]
+wait_time = 1.5
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
