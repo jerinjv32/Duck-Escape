@@ -2,6 +2,7 @@
 
 [ext_resource type="Theme" uid="uid://dqflu6kyjm05b" path="res://gui.tres" id="1_4ttpn"]
 [ext_resource type="Script" uid="uid://werpeuo2ew8m" path="res://scenes/ui/end_screen.gd" id="1_n8r4t"]
+[ext_resource type="AudioStream" uid="uid://bw0xlh6obyko1" path="res://assets/audio/pwlpl-power-up-game-sound-effect-359227.mp3" id="3_wgyui"]
 
 [sub_resource type="Animation" id="Animation_n8r4t"]
 length = 0.001
@@ -100,5 +101,10 @@ theme_override_font_sizes/font_size = 32
 [node name="Button" type="Button" parent="Panel/GridContainer" unique_id=416144923]
 layout_mode = 2
 text = "QUIT"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1969540872]
+stream = ExtResource("3_wgyui")
+volume_db = -0.15
+autoplay = true
 
 [connection signal="pressed" from="Panel/GridContainer/Button" to="." method="_on_button_pressed"]
