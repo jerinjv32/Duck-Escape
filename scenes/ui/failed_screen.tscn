@@ -2,6 +2,7 @@
 
 [ext_resource type="Theme" uid="uid://dqflu6kyjm05b" path="res://gui.tres" id="1_j0ehl"]
 [ext_resource type="Script" uid="uid://cd3e3t7awuuda" path="res://scenes/ui/death_screen.gd" id="1_njuei"]
+[ext_resource type="AudioStream" uid="uid://skoqoho6cuke" path="res://assets/audio/alphix-game-over-417465.mp3" id="3_cnexh"]
 
 [sub_resource type="Animation" id="Animation_njuei"]
 tracks/0/type = "value"
@@ -101,5 +102,9 @@ theme_override_font_sizes/font_size = 32
 layout_mode = 2
 disabled = true
 text = "Restart"
+
+[node name="GameOverAudio" type="AudioStreamPlayer" parent="." unique_id=1628309060]
+stream = ExtResource("3_cnexh")
+autoplay = true
 
 [connection signal="pressed" from="Panel/GridContainer/Button" to="." method="_on_button_pressed"]
